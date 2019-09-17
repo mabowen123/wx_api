@@ -19,7 +19,7 @@ class ArticleController extends Controller
 
         $data = Article::select('id', 'user_id', 'title', 'clicks', 'likes')
             ->withType($request->type, Auth::id())
-            ->with('user:id,nick_name,avatar_url')
+            ->with('user:id,nick_name,avatar_url,gender')
             ->simplePaginate(Article::PAGINATE)
             ->toArray();
 
